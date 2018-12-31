@@ -9,17 +9,38 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <style>
+      .white {
+        color:white;
+      }
+
+      .white:hover {
+        color:white;
+      }
+
+      p {
+        font-size: 14pt;
+      }
+
+
+    </style>
   </head>
 
-  <body>
-    <% flash.each do |name, msg| %>
-      <ul>
-        <li><%= msg %></li>
-      </ul>
-    <% end %>
+  <body style="background-color: #addbe6">
+    <div style="margin: auto; width: 70%; background-color: white; padding: 30px; overflow: auto">
+      <% flash.each do |name, msg| %>
+        <ul>
+          <li><%= msg %></li>
+        </ul>
+      <% end %>
 
-    <%= link_to 'Home', root_path %>
-    <%= link_to 'About', about_path %>
-    <%= yield %>
+      <div style="border-bottom: solid; padding-top: 10px; padding-bottom: 10px">
+        <%= link_to 'Home', root_path %>
+        <%= link_to 'About', about_path %>
+      </div>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

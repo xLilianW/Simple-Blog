@@ -1,13 +1,15 @@
 <h1>Welcome to the Blog</h1>
+
 <p>
-<%= link_to "Create new article", new_article_path %>
+<button class="btn btn-primary"><%= link_to "New Article", new_article_path, class:"white" %></button>
 </p>
+
 <% @articles.each do |article| %>
-	<div class='col-sm'>
+	<div class='col-sm' style="border: solid #d3d3d3 2px; padding: 10px; margin: 10px">
 	 	<h3><%= link_to article.title, article_path(article) %></h3><br>
-	  	<p><%= article.description %></p><br>
-	  	<%= link_to 'Edit', edit_article_path(article) %></td><t>
-	  	<%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"} %></t>
+	  	<p><%= simple_format(article.description[0...500]) %>...</p><br>
+	  	<button class="btn btn-primary"><%= link_to 'Edit', edit_article_path(article), class:"white"%></button>
+	  	<button class="btn btn-primary"><%= link_to 'Delete', article_path(article), method: :delete, data: {:confirm => 'Are you sure?'}, class: "white"%></button>
 	 </div>
  <% end %>
 

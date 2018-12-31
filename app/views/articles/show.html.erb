@@ -1,8 +1,9 @@
 
 <p>
- <h3><b><%= @article.title %></b></h3>
- <p><%= @article.description %></p>
+ <h3><b><%= @article.title %></b></h3><br>
+ <p><%= simple_format(@article.description) %></p><br>
 </p>
 
-<%= link_to 'Back', articles_path %>
-<%= link_to "Edit", edit_article_path(@article) %>
+<button class="btn btn-primary"><%= link_to 'Back', articles_path, class:"white"%></button>
+<button class="btn btn-primary"><%= link_to "Edit", edit_article_path(@article), class:"white"%></button>
+<button class="btn btn-primary"><%= link_to 'Delete', article_path(@article), method: :delete, data: {:confirm => 'Are you sure?'}, class: "white"%></button>
