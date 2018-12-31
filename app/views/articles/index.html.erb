@@ -5,9 +5,13 @@
 </p>
 
 <% @articles.each do |article| %>
-	<div class='col-sm' style="border: solid #d3d3d3 2px; padding: 10px; margin: 10px">
+	<div class='col-sm' style="border: solid #d3d3d3 2px; padding: 10px; margin-top: 10px; margin-bottom: 10px">
 	 	<h3><%= link_to article.title, article_path(article) %></h3><br>
-	  	<p><%= simple_format(article.description[0...500]) %>...</p><br>
+	  	<p><%= simple_format(article.description[0...500]) %>
+	  		<% if article.description.length > 500 %>
+	  		...
+	  		<% end %>
+	  	</p><br>
 	  	<button class="btn btn-primary"><%= link_to 'Edit', edit_article_path(article), class:"white"%></button>
 	  	<button class="btn btn-primary"><%= link_to 'Delete', article_path(article), method: :delete, data: {:confirm => 'Are you sure?'}, class: "white"%></button>
 	 </div>
